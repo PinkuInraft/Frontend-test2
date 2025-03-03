@@ -1,0 +1,331 @@
+@layer global,elements,components,utilities;
+
+/* Global Styling */
+@layer global{
+
+  /* resets */
+*,
+*::before,
+*::after{
+  box-sizing : border-box;
+  margin : 0;
+  padding : 0;
+}
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body {
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+ul,
+ol{
+  list-style: none;
+}
+
+a{
+  text-decoration : none;
+  color : white;
+  font-family : var(--font-family--Body-font);
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Resource Imports */
+@font-face {
+  font-family: NoticiaTextBold;
+  src: url(Assets/NoticiaText-Bold.woff);
+}
+@font-face {
+  font-family: WorkSans;
+  src: url(Assets/WorkSans-Regular.woff);
+}
+
+/* tokens - Given Variables*/
+:root{
+
+  /* Color */
+  --color-background : #043F2E;
+  --color-secondary-background : #C8F169;
+  --text-color-heading :  #2A6B2C;
+  --color-card-background : #78C51C;
+  --text-color : White: #FFFFFF;
+  --tertiary-color : #EEF2E3;
+
+  /* Font Family Tokens */
+  --font-family--Display-font : NoticiaTextBold;
+  --font-family--Body-font : WorkSans;
+
+  /* Spacing Schemes */
+  --spacing-4 : 4px;
+  --spacing-8 : 8px;
+  --spacing-12 : 12px;
+  --spacing-16 : 16px;
+  --spacing-20 : 20px;
+  --spacing-24 : 24px;
+  --spacing-28 : 28px;
+  --spacing-32 : 32px;
+  --spacing-40 : 40px;
+  --spacing-48 : 48px;
+  --spacing-64 : 64px;
+  --spacing-128 : 128px;
+  --spacing-256 : 256px;
+  --spacing-512 : 512px;
+
+  /* Font size */
+
+  --font-size-heading1 : 5.2rem;
+  --font-size-text : 1.1rem;
+}
+
+}
+
+/* elements */
+
+@layer elements{
+
+h1{
+  font-size : var(--font-size-heading1);
+  color : var(--color-background);
+  font-family : var(--font-family--Display-font);
+}
+h3{
+  font-size : 3.5rem;
+  font-family : var(WorkSans);
+}
+
+p{
+  font-size : var(--font-size-text);
+  color : var(--text-color);
+  font-family : var(--font-family--Body-font);
+}
+
+li{
+  color : var(--text-color-heading);
+}
+
+}
+
+/* components */
+@layer component{
+  .main{
+    min-height : 100vh;
+    background-color : var(--color-card-background);
+    padding-block : var(--spacing-128);
+  }
+
+  .about__wrapper,.services__wrapper{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap : wrap;
+    align-items : center;
+    background-color: var(--text-color-heading);
+    padding: var(--spacing-64);
+    margin-bottom: var(--spacing-64);
+    border-radius: 16px ;
+    color : white;
+}
+  .image-wrapper{
+    width : 40%;
+    height : auto;
+    object-fit : cover;
+  }
+  .about__description__wrapper{
+    width : 60%;
+    padding-inline : var(--spacing-64);
+  }
+  .about__special__text{
+    color : var(--color-secondary-background);
+    text-transform : uppercase;
+    font-weight : 600;
+    margin-bottom : var(--spacing-24);
+  }
+  .about__heading{
+    margin-bottom : var(--spacing-20);
+  }
+  .about__descript{
+    width : 85%;
+    margin-bottom : var(--spacing-64);
+  }
+
+  .service__description__wrapper{
+    width : 50%;
+    padding-inline : var(--spacing-32);
+  }
+  .box__wrapper{
+    width : 50%;
+    min-height : 530px;
+    padding : var(--spacing-16);
+    position : relative;
+  }
+  .card__content{
+    height : 100%;
+    width : 100%;
+    display : flex;
+    gap : var(--spacing-8);
+    flex-direction : column;
+    justify-content : end;
+    color : var(--color-background);
+    font-weight : 500;
+    padding : var(--spacing-12);
+  }
+  .adhoc-card{
+    background-color: var(--color-secondary-background);
+    height: 150px;
+    width: 25%;
+    border-radius: 12px;
+    position : absolute;
+    top : 0;
+    left : 0;
+  }
+  .interactive-dashboard-card{
+    background-color: var(--color-secondary-background);
+    height: 370px;
+    width: 71%;
+    border-radius:12px;
+    clip-path: polygon(0% 0%,                  100% 0%,                  100% 40%,                 50% 40%,                  50% 100%,                  0% 100%);
+    position : absolute;
+    top : 0%;
+    right: 0%;
+    p{
+      width : 30%;
+    }
+}
+  .selfserve-card{
+    background-color: var(--color-secondary-background);
+    height: 360px;
+    width: 36%;
+    border-radius: 12px;
+    clip-path: polygon(0% 0%,                  70% 0%,                  70% 60%,                 100% 60%,                  100% 100%,                  0% 100%);
+    position : absolute;
+    bottom : 0;
+    left : 0;
+  }
+  .custom-data-apps{
+    background-color: var(--color-secondary-background);
+    height: 144px;
+    width: 25%;
+    border-radius: 12px;
+    position : absolute;
+    bottom : 0%;
+    left : 39.5%;
+  }
+  .advanceanalytics-card{
+    background-color: var(--color-secondary-background);
+    height: 360px;
+    width: 30%px;
+    border-radius: 12px;
+    position : absolute;
+    bottom : 0%;
+    right : 0%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .about__wrapper,.services__wrapper{
+      gap : 10vh;
+    }
+    .image-wrapper{
+      width : 100%;
+    }
+    .about__description__wrapper{
+      width : 100%;
+    }
+    .service__description__wrapper{
+      width : 100%;
+    }
+    .box__wrapper{
+      width : 100%;
+    }
+  }
+
+}
+
+
+
+
+@layer utilities{
+  @media only screen and (min-width: 1400px) {
+    .container{
+      max-width : 1240px;
+      margin-inline : auto;
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    .container{
+      max-width : 1240px;
+      margin-inline : auto;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .container{
+      max-width : 960px;
+      margin-inline : auto;
+    }
+  }
+
+  @media only screen and (max-width: 992px) {
+    .container{
+      max-width : 720px;
+      margin-inline : auto;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .container{
+      max-width : 540px;
+      margin-inline : auto;
+    }
+  }
+
+  @media only screen and (max-width: 576px) {
+    .container{
+      max-width : 100%;
+      margin-inline : auto;
+    }
+  }
+
+  .btn{
+    padding: var(--spacing-12) var(--spacing-32);
+    border: 1px solid white;
+    color: white;
+    border-radius:  4px;
+  }
+}
